@@ -9,9 +9,14 @@ import (
 )
 
 // Hardcoding the file name
-const todoFileName = ".todo.json"
+var todoFileName = ".todo.json"
 
 func main() {
+	// Check if the user defined the ENV VAR for a custom file name
+	if os.Getenv("TODO_FILENAME") != "" {
+		todoFileName = os.Getenv("TODO_FILENAME")
+	}
+
 	flag.Usage = func() {
 		fmt.Fprintf(flag.CommandLine.Output(),
 			"%s tool. Developed for The Pragmatic Bookshelf\n", os.Args[0])
