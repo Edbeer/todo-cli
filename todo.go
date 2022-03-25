@@ -31,7 +31,7 @@ func (l *List) String() string {
 		}
 
 		// Adjust the item number k to print numbers starting from 1 instead of 0
-		formatted += fmt.Sprintf("%s%d: %s\n", prefix, k+1, t.Task)
+		formatted += fmt.Sprintf("%s%d: %s [%s]\n", prefix, k+1, t.Task, time.Now().Format("02-Jan-2006"))
 	}
 
 	return formatted
